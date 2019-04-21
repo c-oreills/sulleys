@@ -1,12 +1,15 @@
-<ul>
+<div>
     {% for building in object_list %}
-    <a href="{% url 'detail' building.id %}">
-        <li>
+    <div>
+        <a href="{% url 'detail' building.id %}">
             <img src="{{ building.main_image.url }}"
                 alt="{{ building.name }}"
-                width="200px"
+                width="125px"
             />
-        </li>
-    </a>
+        </a>
+        {% if forloop.counter0|divisibleby:6 %}
+        <br />
+        {% endif %}
+    </div>
     {% endfor %}
-</ul>
+</div>
