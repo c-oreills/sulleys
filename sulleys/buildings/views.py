@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, RedirectView
 
 from taggit.models import Tag
 
@@ -21,3 +21,13 @@ class BuildingListByTag(ListView):
 
 class BuildingDetail(DetailView):
     model = Building
+
+
+class BuildingRedirectView(RedirectView):
+    permanent = True
+    query_string = True
+    pattern_name = 'detail'
+
+    def get_redirect_url(self, *args, **kwargs):
+        building = get_object_or_404(Building, pk=kwargs['pk'])
+        return super().get_redirect_url(slug=building.slug)
