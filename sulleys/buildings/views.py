@@ -33,6 +33,14 @@ class BuildingRedirectView(RedirectView):
     query_string = True
     pattern_name = 'detail'
 
+    def get(self, request, *args, **kwargs):
+        self.building = get_object_or_404(Building, pk=kwargs['pk'])
+
+        # Prevent infinite redirect loops
+        if self.building.slug == str(self.building.pk):
+            return BuildingDetail.as_view()(request, *args, **kwargs)
+
+        return super().get(request, *args, **kwargs)
+
     def get_redirect_url(self, *args, **kwargs):
-        building = get_object_or_404(Building, pk=kwargs['pk'])
-        return super().get_redirect_url(slug=building.slug)
+        return super().get_redirect_url(slug=self.building.slug)
