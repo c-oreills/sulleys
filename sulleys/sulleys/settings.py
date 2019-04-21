@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    # Third party
     'cloudinary',
     'cloudinary_storage', # Needs to be after static files for media file use
     'cms',
@@ -61,6 +62,8 @@ INSTALLED_APPS = [
     'mptt',
     'sekizai',
     'treebeard',
+    # Sulleys specific
+    'buildings.apps.BuildingsConfig',
 ]
 
 MIDDLEWARE = [

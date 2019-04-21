@@ -1,0 +1,29 @@
+<h2>{{ object.name }}</h2>
+<img src="{{ object.main_image.url }}"
+     alt="{{ object.name }}"
+     width="400px" \>
+
+<p>{{ object.catalogue_number }}</p>
+<p>{{ object.description }}</p>
+<p>{{ object.notes }}</p>
+
+{% if object.location %}
+    <div class="mapouter">
+        <div class="gmap_canvas"><iframe width="400" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q={{ object.location | urlencode }}&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
+        <style>
+            .mapouter {
+                position: relative;
+                text-align: right;
+                height: 400px;
+                width: 400px;
+            }
+
+            .gmap_canvas {
+                overflow: hidden;
+                background: none !important;
+                height: 400px;
+                width: 400px;
+            }
+        </style>
+    </div>
+{% endif %}
