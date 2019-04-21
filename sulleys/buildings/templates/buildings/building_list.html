@@ -1,13 +1,13 @@
 <div>
     {% for building in object_list %}
-    <div>
+    <div style="display: inline">
         <a href="{% url 'detail' building.id %}">
             <img src="{{ building.main_image.url }}"
                 alt="{{ building.name }}"
                 width="125px"
             />
         </a>
-        {% if forloop.counter0|divisibleby:6 %}
+        {% if forloop.counter|divisibleby:6 %}
         <br />
         {% endif %}
     </div>
