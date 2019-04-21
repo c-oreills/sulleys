@@ -1,6 +1,8 @@
 {% extends CMS_TEMPLATE %}
 {% load cms_tags %}
 
+{% block title %}{% if tag %}{{ tag.name }}{% else %}Collection{% endif %}{% endblock %}
+
 {% block content %}
 <div>
     {% for building in object_list %}

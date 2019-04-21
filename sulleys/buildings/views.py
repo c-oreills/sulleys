@@ -18,6 +18,11 @@ class BuildingListByTag(ListView):
         self.tag = get_object_or_404(Tag, slug=self.kwargs['tag'])
         return Building.objects.filter(tags=self.tag)
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tag'] = self.tag
+        return context
+
 
 class BuildingDetail(DetailView):
     model = Building

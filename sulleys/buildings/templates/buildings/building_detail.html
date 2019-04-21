@@ -1,6 +1,8 @@
 {% extends CMS_TEMPLATE %}
 {% load cms_tags %}
 
+{% block title %}{{ object.name }}{% endblock %}
+
 {% block content %}
 <h2>{% render_model object 'name' %}</h2>
 <img src="{{ object.main_image.url }}"
