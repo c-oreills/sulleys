@@ -33,7 +33,9 @@
 {% endif %}
 
 {% for tag in object.tags.all %}
-    <span class="tag">{{ tag.name }}</span>
+    <a href="{% url 'list_by_tag' tag.slug %}">
+        <span class="tag">{{ tag.name }}</span>
+    </a>
 {% endfor %}
 
 {% endblock %}
