@@ -1,3 +1,7 @@
+{% extends CMS_TEMPLATE %}
+{% load cms_tags %}
+
+{% block content %}
 <div>
     {% for building in object_list %}
     <div style="display: inline">
@@ -13,3 +17,4 @@
     </div>
     {% endfor %}
 </div>
+{% endblock %}

@@ -1,11 +1,15 @@
-<h2>{{ object.name }}</h2>
+{% extends CMS_TEMPLATE %}
+{% load cms_tags %}
+
+{% block content %}
+<h2>{% render_model object 'name' %}</h2>
 <img src="{{ object.main_image.url }}"
      alt="{{ object.name }}"
      width="400px" \>
 
-<p>{{ object.catalogue_number }}</p>
-<p>{{ object.description }}</p>
-<p>{{ object.notes }}</p>
+<p>{% render_model object 'catalogue_number' %}</p>
+<p>{% render_model object 'description' %}</p>
+<p>{% render_model object 'notes' %}</p>
 
 {% if object.location %}
     <div class="mapouter">
@@ -27,3 +31,4 @@
         </style>
     </div>
 {% endif %}
+{% endblock %}
