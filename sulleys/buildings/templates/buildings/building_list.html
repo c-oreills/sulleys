@@ -1,5 +1,5 @@
 {% extends CMS_TEMPLATE %}
-{% load cms_tags %}
+{% load cms_tags thumbnail %}
 
 {% block title %}{% if tag %}{{ tag.name }}{% else %}Collection{% endif %}{% endblock %}
 
@@ -8,10 +8,8 @@
     {% for building in object_list %}
     <div style="display: inline">
         <a href="{% url 'detail' building.slug %}">
-            <img src="{{ building.main_image.url }}"
-                alt="{{ building.name }}"
-                width="125px"
-            />
+            <img src="{{ building.main_image | thumbnail_url:'list_main' }}"
+                alt="{{ building.name }}" />
         </a>
         {% if forloop.counter|divisibleby:6 %}
         <br />

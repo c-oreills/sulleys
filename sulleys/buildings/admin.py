@@ -2,9 +2,16 @@ from django.contrib import admin
 
 from cms.admin.placeholderadmin import FrontendEditableAdminMixin
 
-from buildings.models import Building
+from buildings import models
+
+
+class BuildingImageAdmin(admin.TabularInline):
+    model = models.BuildingImage
+
 
 class BuildingAdmin(FrontendEditableAdminMixin, admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
+    inlines = [BuildingImageAdmin]
 
-admin.site.register(Building, BuildingAdmin)
+
+admin.site.register(models.Building, BuildingAdmin)

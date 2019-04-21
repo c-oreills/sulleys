@@ -18,3 +18,8 @@ class Building(models.Model):
 
     def __str__(self):
         return f'Building {self.pk} ({self.name})'
+
+
+class BuildingImage(models.Model):
+    building = models.ForeignKey(Building, related_name='sub_images', on_delete=models.CASCADE)
+    image = models.ImageField()

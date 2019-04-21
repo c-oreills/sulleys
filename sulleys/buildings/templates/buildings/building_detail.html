@@ -1,13 +1,19 @@
 {% extends CMS_TEMPLATE %}
-{% load cms_tags %}
+{% load cms_tags thumbnail %}
 
 {% block title %}{{ object.name }}{% endblock %}
 
 {% block content %}
 <h2>{% render_model object 'name' %}</h2>
-<img src="{{ object.main_image.url }}"
-     alt="{{ object.name }}"
-     width="400px" \>
+<img src="{{ object.main_image | thumbnail_url:'detail_main' }}"
+     alt="{{ object.name }}" \>
+
+<div>
+    {% for sub_image in object.sub_images.all %}
+    <img src="{{ sub_image.image | thumbnail_url:'detail_sub' }}"
+        width="200px" \>
+    {% endfor %}
+</div>
 
 <p>{% render_model object 'catalogue_number' %}</p>
 <p>{% render_model object 'description' %}</p>

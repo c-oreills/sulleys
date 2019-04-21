@@ -188,5 +188,14 @@ CLOUDINARY_URL = os.environ['CLOUDINARY_URL']
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+THUMBNAIL_DEFAULT_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+THUMBNAIL_ALIASES = {
+    '': {
+        'detail_main': {'size': (400, 300)},
+        'detail_sub': {'size': (200, 150)},
+        'list_main': {'size': (160, 120)},
+    }
+}
+
 # Activate Django-Heroku.
 django_heroku.settings(locals(), databases=not DEBUG)
