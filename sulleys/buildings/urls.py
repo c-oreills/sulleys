@@ -4,5 +4,5 @@ from buildings import views
 
 urlpatterns = [
     path('', views.BuildingList.as_view(), name='index'),
-    path('<int:pk>/', views.BuildingDetail.as_view(), name='detail'),
+    path('<str:slug>/', views.BuildingDetail.as_view(), name='detail'),
 ]

@@ -1,7 +1,7 @@
 <div>
     {% for building in object_list %}
     <div style="display: inline">
-        <a href="{% url 'detail' building.id %}">
+        <a href="{% url 'detail' building.slug %}">
             <img src="{{ building.main_image.url }}"
                 alt="{{ building.name }}"
                 width="125px"
