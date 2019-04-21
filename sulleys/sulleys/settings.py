@@ -61,6 +61,8 @@ INSTALLED_APPS = [
     'menus',
     'mptt',
     'sekizai',
+    'taggit',
+    'taggit_autosuggest',
     'treebeard',
     # Sulleys specific
     'buildings.apps.BuildingsConfig',

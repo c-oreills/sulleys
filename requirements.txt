@@ -4,6 +4,8 @@ django-cms==3.6.0
 django-extensions==2.1.6
 django-filer==1.4.4
 django-heroku==0.3.1
+django-taggit==1.1.0
+django-taggit-autosuggest==0.3.7
 djangocms-admin-style==1.4.0
 djangocms-attributes-field==1.1.0
 djangocms-column==1.9.0
