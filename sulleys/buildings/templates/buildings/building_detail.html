@@ -31,4 +31,9 @@
         </style>
     </div>
 {% endif %}
+
+{% for tag in object.tags.all %}
+    <span class="tag">{{ tag.name }}</span>
+{% endfor %}
+
 {% endblock %}
