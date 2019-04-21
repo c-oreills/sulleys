@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+heroku pg:backups:capture
+
+URL=$(heroku pg:backups public-url $1)
+
+wget -O prod.sql $URL

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+DB_USER=backend
+DB_NAME=backend
+
+set +e
+pg_restore --verbose --clean --no-acl --no-owner -U $DB_USER -d $DB_NAME -h localhost -j 8 prod.sql
