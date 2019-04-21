@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'cloudinary',
+    'cloudinary_storage', # Needs to be after static files for media file use
     'cms',
     'django_extensions',
     'djangocms_column',
@@ -176,6 +178,10 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters'
 )
+
+CLOUDINARY_URL = os.environ['CLOUDINARY_URL']
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals(), databases=not DEBUG)
