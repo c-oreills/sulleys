@@ -1,20 +1,56 @@
 {% extends CMS_TEMPLATE %}
-{% load cms_tags thumbnail %}
+{% load cms_tags sekizai_tags thumbnail %}
 
 {% block title %}{% if tag %}{{ tag.name }}{% else %}Collection{% endif %}{% endblock %}
 
+
 {% block content %}
+{% addtoblock "css" %}
+<style type="text/css">
+ .building-container {
+   display: inline-block;
+   position: relative;
+ }
+ .overlay {
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   height: 100%;
+   width: 100%;
+   text-align: center;
+   vertical-align: middle;
+   color: white;
+   background-color: #444444;
+   opacity:0;
+   transition: 300ms ease;
+ }
+ .overlay-text {
+   position: relative;
+   top: 40%;
+   -ms-transform: translateY(-40%);
+   -webkit-transform: translateY(-40%);
+   transform: translateY(-40%);
+ }
+ .building-container:hover .overlay {
+   opacity:.6;
+ }
+</style>
+{% endaddtoblock %}
+
 <div>
     {% for building in object_list %}
-    <div style="display: inline">
+    <div class="building-container">
         <a href="{% url 'detail' building.slug %}">
             <img src="{{ building.main_image | thumbnail_url:'list_main' }}"
                 alt="{{ building.name }}" />
+            <div class="overlay"><span class="overlay-text">{{ building.name }}</span></div>
         </a>
-        {% if forloop.counter|divisibleby:6 %}
-        <br />
-        {% endif %}
     </div>
+    {% if forloop.counter|divisibleby:6 %}
+    <br />
+    {% endif %}
     {% endfor %}
 </div>
 {% endblock %}
