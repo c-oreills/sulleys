@@ -6,9 +6,11 @@ from taggit.models import Tag
 from buildings.models import Building
 
 
-
 class BuildingList(ListView):
     model = Building
+
+    def get_ordering(self):
+        return ('catalogue_number',)
 
 
 class BuildingListByTag(ListView):
@@ -22,6 +24,9 @@ class BuildingListByTag(ListView):
         context = super().get_context_data(**kwargs)
         context['tag'] = self.tag
         return context
+
+    def get_ordering(self):
+        return ('catalogue_number',)
 
 
 class BuildingDetail(DetailView):
