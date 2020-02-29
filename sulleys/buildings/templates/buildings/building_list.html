@@ -40,7 +40,7 @@
 </style>
 {% endaddtoblock %}
 
-{% if tag %}<h2>{{ tag.name }}</h2>{% endif %}
+{% if tag %}<span style="text-align: center"><h2>{{ tag.name }}</h2></span>{% endif %}
 <div>
     {% for building in object_list %}
     <div class="building-container">
