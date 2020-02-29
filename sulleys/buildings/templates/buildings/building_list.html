@@ -1,7 +1,7 @@
 {% extends CMS_TEMPLATE %}
 {% load cms_tags sekizai_tags thumbnail %}
 
-{% block title %}{% if tag %}{{ tag.name }}{% else %}Collection{% endif %}{% endblock %}
+{% block title %}Sulleys Ceramics: {% if tag %}{{ tag.name }}{% else %}Collection{% endif %}{% endblock %}
 
 
 {% block content %}
@@ -40,6 +40,7 @@
 </style>
 {% endaddtoblock %}
 
+{% if tag %}<h2>{{ tag.name }}</h2>{% endif %}
 <div>
     {% for building in object_list %}
     <div class="building-container">
