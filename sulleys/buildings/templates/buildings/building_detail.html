@@ -11,7 +11,7 @@
 <div>
     {% for sub_image in object.sub_images.all %}
     <img src="{{ sub_image.image | thumbnail_url:'detail_sub' }}"
-        width="200px" \>
+        width="200px" style="margin-top: 5px" \>
     {% endfor %}
 </div>
 
