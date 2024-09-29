@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "==2.1.8"
+django = "==2.1.15"
 django-cloudinary-storage = "==0.2.3"
 django-cms = "==3.6.0"
 django-extensions = "==2.1.6"
