@@ -26,11 +26,9 @@ djangocms-video = "==2.1.1"
 gunicorn = "==19.9.0"
 ipython = "==7.4.0"
 pillow = "==6.2.2"
-# don't install psycopg2 on macOS: compiling is a pain
-psycopg2 = {version = "==2.7.7", markers = "sys_platform != 'darwin'"}
+psycopg2 = "==2.9.9"
 
 [dev-packages]
-psycopg2-binary = "==2.7.7"
 
 [requires]
 python_version = "3.12"
