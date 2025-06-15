@@ -179,6 +179,9 @@ CMS_TEMPLATES = [
 # Django CMS 5.x confirmation (required for CMS 4+ architecture)
 CMS_CONFIRM_VERSION4 = True
 
+# Default primary key field type
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 THUMBNAIL_HIGH_RESOLUTION = True
 
 THUMBNAIL_PROCESSORS = (
