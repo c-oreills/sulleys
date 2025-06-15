@@ -57,11 +57,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
-# Essential Django CMS 5 AJAX settings (minimum required for form loading)
-CSRF_COOKIE_HTTPONLY = False  # Allow JavaScript access to CSRF token
-CSRF_COOKIE_SECURE = False  # Allow over HTTP for local dev
-X_FRAME_OPTIONS = 'SAMEORIGIN'  # Allow Django CMS forms in iframes
-
 # Disable whitenoise for local development to avoid static file issues
 MIDDLEWARE = [m for m in MIDDLEWARE if 'whitenoise' not in m.lower()]
 

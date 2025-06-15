@@ -182,6 +182,11 @@ CMS_CONFIRM_VERSION4 = True
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Django CMS iframe and CSRF settings (required for admin forms to work)
+X_FRAME_OPTIONS = 'SAMEORIGIN'  # Allow Django CMS forms in iframes
+CSRF_COOKIE_HTTPONLY = False    # Allow JavaScript access to CSRF tokens
+CSRF_COOKIE_SECURE = not DEBUG  # Use secure cookies in production, not in debug mode
+
 THUMBNAIL_HIGH_RESOLUTION = True
 
 THUMBNAIL_PROCESSORS = (
