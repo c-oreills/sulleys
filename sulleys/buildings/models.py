@@ -14,7 +14,7 @@ class Building(models.Model):
 
     location = models.CharField(blank=True, max_length=200)
 
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
 
     def __str__(self):
         return f'Building {self.pk} ({self.name})'
