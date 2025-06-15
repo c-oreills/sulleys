@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'djangocms_googlemap',
     'djangocms_link',
     'djangocms_picture',
-    'djangocms_snippet',
     'djangocms_style',
     'djangocms_text_ckeditor',
     'djangocms_video',
@@ -176,6 +175,9 @@ LANGUAGES = [
 CMS_TEMPLATES = [
     ('base.html', 'Base')
 ]
+
+# Django CMS 5.x confirmation (required for CMS 4+ architecture)
+CMS_CONFIRM_VERSION4 = True
 
 THUMBNAIL_HIGH_RESOLUTION = True
 
