@@ -10,7 +10,7 @@ class Building(models.Model):
     description = models.TextField(blank=True)
     notes = models.TextField(blank=True)
 
-    main_image = models.ImageField()
+    main_image = models.ImageField(blank=True, null=True)
 
     location = models.CharField(blank=True, max_length=200)
 
