@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "4ea6e4bd8843fc4c7fcf9cd46768c40421bd1fc015204ab67910ec0e922b74e7"
+            "sha256": "3936e6764aca6c7afa2cb86d00ca31d1eb656ec1680631b398244e47dea4e3e0"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -342,10 +342,11 @@
         },
         "djangocms-link": {
             "hashes": [
-                "sha256:bd66003e34f715754087e5d41c64408f15de0a23b735ae12038de4f3ec4271b3"
+                "sha256:1e14cb0172f04b6f917a383331582095ace61bba1c23207c44e401ef06b2d290",
+                "sha256:9a1135c815367e74bbc665eb656e34740fd7f0cb862dd5b7754433b32297f789"
             ],
             "index": "pypi",
-            "version": "==1.1"
+            "version": "==2.6.1"
         },
         "djangocms-picture": {
             "hashes": [
