@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Convenience script to run Django management commands with local settings
+# Usage: ./manage-local migrate
+#        ./manage-local runserver
+#        ./manage-local createsuperuser
+#        etc.
+
+pipenv run python sulleys/manage.py "$@" --settings=sulleys.settings_local 
