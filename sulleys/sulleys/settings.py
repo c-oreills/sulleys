@@ -187,6 +187,12 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'  # Allow Django CMS forms in iframes
 CSRF_COOKIE_HTTPONLY = False    # Allow JavaScript access to CSRF tokens
 CSRF_COOKIE_SECURE = not DEBUG  # Use secure cookies in production, not in debug mode
 
+# Essential security headers for production
+if not DEBUG:
+    SECURE_CONTENT_TYPE_NOSNIFF = True  # Prevent MIME type sniffing
+    SECURE_SSL_REDIRECT = True          # Force HTTPS redirects
+    SESSION_COOKIE_SECURE = True        # Secure session cookies
+
 THUMBNAIL_HIGH_RESOLUTION = True
 
 THUMBNAIL_PROCESSORS = (
