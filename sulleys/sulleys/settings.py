@@ -208,6 +208,7 @@ MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 THUMBNAIL_DEFAULT_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 THUMBNAIL_ALIASES = {
     '': {
         'detail_main': {'size': (400, 300)},
@@ -218,3 +219,12 @@ THUMBNAIL_ALIASES = {
 
 # Activate Django-Heroku.
 django_heroku.settings(locals(), databases=not DEBUG)
+
+# IMPORTANT: These settings must come AFTER django_heroku to avoid being overridden
+# Fix MEDIA_URL for Cloudinary (django-heroku might override it)
+if 'cloudinary' in INSTALLED_APPS:
+    import cloudinary
+    MEDIA_URL = f"https://res.cloudinary.com/{cloudinary.config().cloud_name}/"
+
+THUMBNAIL_MEDIA_URL = MEDIA_URL
+THUMBNAIL_MEDIA_ROOT = ''
