@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'cloudinary_storage', # Needs to be after static files for media file use
     'cms',
+    'djangocms_alias',
     'django_extensions',
     'djangocms_column',
     'djangocms_file',
