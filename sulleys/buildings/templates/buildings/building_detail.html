@@ -6,12 +6,12 @@
 {% block content %}
 <h2>{% render_model object 'name' %}</h2>
 {% if object.main_image %}
-{% cloudinary object.main_image width=400 height=300 crop="fill" quality=85 %}
+{% cloudinary object.main_image.name width=400 height=300 crop="fill" quality=85 %}
 {% endif %}
 
 <div>
     {% for sub_image in object.sub_images.all %}
-    {% cloudinary sub_image.image width=200 height=150 crop="fill" quality=85 %}
+    {% cloudinary sub_image.image.name width=200 height=150 crop="fill" quality=85 %}
     {% endfor %}
 </div>
 
