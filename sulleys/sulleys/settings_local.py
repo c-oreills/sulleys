@@ -21,6 +21,8 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', '*']
 # Local development secret key
 SECRET_KEY = os.environ.get('SECRET_KEY', 'local-development-secret-key-not-for-production')
 
+SECURE_SSL_REDIRECT = False
+
 # Disable django-heroku for local development
 # (This prevents it from overriding our local settings)
 import sys
