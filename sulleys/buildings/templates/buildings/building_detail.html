@@ -1,19 +1,17 @@
 {% extends CMS_TEMPLATE %}
-{% load cms_tags thumbnail %}
+{% load cms_tags cloudinary %}
 
 {% block title %}{{ object.name }}{% endblock %}
 
 {% block content %}
 <h2>{% render_model object 'name' %}</h2>
 {% if object.main_image %}
-<img src="{{ object.main_image | thumbnail_url:'detail_main' }}"
-     alt="{{ object.name }}" />
+{% cloudinary object.main_image width=400 height=300 crop="fill" quality=85 %}
 {% endif %}
 
 <div>
     {% for sub_image in object.sub_images.all %}
-    <img src="{{ sub_image.image | thumbnail_url:'detail_sub' }}"
-        width="200px" style="margin-top: 5px" />
+    {% cloudinary sub_image.image width=200 height=150 crop="fill" quality=85 %}
     {% endfor %}
 </div>
 

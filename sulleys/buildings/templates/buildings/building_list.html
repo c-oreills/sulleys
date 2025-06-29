@@ -1,5 +1,5 @@
 {% extends CMS_TEMPLATE %}
-{% load cms_tags sekizai_tags thumbnail %}
+{% load cms_tags sekizai_tags cloudinary %}
 
 {% block title %}Sulleys Ceramics: {% if tag %}{{ tag.name }}{% else %}Collection{% endif %}{% endblock %}
 
@@ -46,8 +46,7 @@
     <div class="building-container">
         <a href="{% url 'detail' building.slug %}">
             {% if building.main_image %}
-            <img src="{{ building.main_image | thumbnail_url:'list_main' }}"
-                alt="{{ building.name }}" />
+            {% cloudinary building.main_image width=160 height=120 crop="fill" quality=85 %}
             <div class="overlay"><span class="overlay-text">{{ building.name }}</span></div>
             {% else %}
             <div style="width: 160px; height: 120px; background-color: #f5f5f5; border: 2px dashed #ddd; display: flex; align-items: center; justify-content: center; color: #666; font-size: 12px; text-align: center; padding: 8px; box-sizing: border-box;">
